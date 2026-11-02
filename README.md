@@ -102,8 +102,6 @@ Penyebab kegagalan utama:
 <img width="750" height="1000" alt="hasil_sudut3" src="https://github.com/user-attachments/assets/4078881d-ee2d-44ec-b3ec-290ead10e0ce" />
 <img width="562" height="1000" alt="hasil_ideal7" src="https://github.com/user-attachments/assets/6e95cf59-a210-4311-9914-42538b6977f0" />
 
-**Keterbatasan.** Parameter dan beberapa batas aturan disetel pada dataset ini, sehingga akurasi pada data baru bisa lebih rendah. Evaluasi di atas memakai pipeline normal; mode objek besar belum dievaluasi terhadap ground truth.
-
 ## Eksperimen Pembanding
 
 **A. Pengaruh epsilon `approxPolyDP`** (epsilon = e x keliling)
