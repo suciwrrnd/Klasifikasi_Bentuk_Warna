@@ -59,10 +59,6 @@ flowchart LR
 
 **Mode objek besar.** Untuk benda yang memenuhi sebagian besar foto (misalnya sticky note), estimasi latar tidak cocok. Mode ini memakai region growing: seed adalah bagian paling jenuh, wilayah adalah piksel yang warnanya (Lab) dekat dengan seed, dan warna ditentukan dengan `inRange` HSV. Fungsi `analisis_otomatis()` mencoba mode ini lebih dulu; jika tidak ada wilayah yang luasnya > 20% foto dan padat (solidity > 0,9), dipakai pipeline normal. Pemilihan otomatis ini bersifat heuristik dan dipakai pada bagian "Uji pada foto baru".
 
-<!-- Opsional: tambahkan gambar langkah demi langkah dari notebook, misalnya:
-![Pipeline langkah demi langkah](docs/pipeline.png)
--->
-
 ## Dataset
 
 Foto potongan kertas yang dipotret sendiri oleh kelompok, disertai file `ground_truth.csv` (kolom `file`, `kondisi`, `jumlah_objek`, `keterangan`). Ground truth berisi daftar objek (bentuk + warna) tanpa posisi, sehingga pencocokan dilakukan sebagai multiset.
@@ -99,6 +95,12 @@ Penyebab kegagalan utama:
 - Foto sangat miring: persegi menjadi jajar genjang sehingga terbaca persegi panjang.
 - Objek terpotong tepi foto dan berada di bayangan.
 - Ambiguitas lipatan origami "love" yang mirip bintang.
+
+## Beberapa Gambar Hasil (sisanya di folder output)
+
+<img width="562" height="1000" alt="hasil_ideal5" src="https://github.com/user-attachments/assets/179c919a-0b2c-471e-a227-c474a78f42eb" />
+<img width="750" height="1000" alt="hasil_sudut3" src="https://github.com/user-attachments/assets/4078881d-ee2d-44ec-b3ec-290ead10e0ce" />
+<img width="562" height="1000" alt="hasil_ideal7" src="https://github.com/user-attachments/assets/6e95cf59-a210-4311-9914-42538b6977f0" />
 
 **Keterbatasan.** Parameter dan beberapa batas aturan disetel pada dataset ini, sehingga akurasi pada data baru bisa lebih rendah. Evaluasi di atas memakai pipeline normal; mode objek besar belum dievaluasi terhadap ground truth.
 
@@ -172,4 +174,4 @@ jupyter notebook UTS_Kelompok08.ipynb
 
 Letakkan folder dataset (foto `.jpg`) dan `ground_truth.csv` di samping notebook. Notebook mencari keduanya secara otomatis dari folder tempat notebook berada, dan membuat folder `output/` untuk menyimpan citra hasil. Jalankan sel dari atas ke bawah (*Run All*).
 
-Untuk mencoba foto baru, ubah `FOTO_BARU` pada sel terakhir ke nama file fotomu.
+Untuk mencoba foto baru, ubah `FOTO_BARU` pada sel terakhir ke nama file foto.
